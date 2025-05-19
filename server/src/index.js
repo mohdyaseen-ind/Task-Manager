@@ -15,13 +15,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: (origin, callback) => {
-    // Allow requests with no origin (like mobile apps, curl, etc.)
-    if (!origin) return callback(null, true);
-    // Allow any localhost port
-    if (/^http:\/\/localhost:\d+$/.test(origin)) return callback(null, true);
-    callback(new Error('Not allowed by CORS'));
-  },
+  origin: ['https://task-manager-ai.netlify.app/'],
   credentials: true,
 }));
 app.use(express.json());
